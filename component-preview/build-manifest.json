@@ -10,11 +10,11 @@
     "main.js": "feeb70f6d2abd18129a1ce49df0b28e77130f0e4152075f0c372acebb197ce49",
     "simple-sidebar.js": "234b523b4959c0b6ea50068fdeddeafad80572220ae1d9f6df527a83cd6ee54f",
     "source.json": "3b83f7a4d5e728e647127dd8c6045c6cb2773b333ce311030ece427c709be48c",
-    "theme.css": "d5dbe7c77d28d1bb728e85d782d41d167dd3f676a107e52dab9630179779caed",
+    "theme.css": "72335391e4820d3617a56bf0be9c1d1f97d8392afeb9829948eb2481390b1373",
     "vite.config.mjs": "27e199c99b5732657383df7fefd457b81f4a290455449237bc620084879bced5"
   },
   "assets": {
-    "assets/index-zfqnDBBZ.js": "9acef6764bc889ee2f7e8c68c97ea6fbd6629ac3cf9eb96dabfddeaace255106",
+    "assets/index-DWpZNkg8.js": "9acef6764bc889ee2f7e8c68c97ea6fbd6629ac3cf9eb96dabfddeaace255106",
     "assets/AccountStatus-QKuPTJJB.js": "db63f7661476135f591cd1e6c98d3f87f33bae3e2134bff036fb4fe752742ef8",
     "assets/ArchiveRestoreDialog-DLXYEsPh.js": "9b239868c9072f5dc1c0230c752ce5586a42ae8e026e5156147e98785fcb3e03",
     "assets/Banner-DKCX_dtR.js": "e103797efb56d3ae3dff803d4697cf06c6c0491bb8018d4149b93574a2bc28c1",
@@ -67,9 +67,9 @@
     "assets/preload-helper-HclGiUj8.js": "bba5840eec0028b00854bcd58fba80694d02d41e98417656424c05b26db7120c",
     "assets/view-8cZ67cmo.js": "277e663145a0b34947a773c1a57dbcdf0f9681ebc9932933d8bd34a4b97edc1b",
     "assets/NotoColorEmoji-COLRv1-CCV6F2KB.woff2": "cc1ca9eacebffd17e9064206ddd3144241be9a198aa0eeec72c8c26a3236f2c3",
-    "assets/index-BFWnKUKm.css": "dec3697ba04534434076f60f71564fe3355523a777716535e74e4d2df83ea20a",
+    "assets/index-0fjEvNm0.css": "d834829750449cc059cce52fbd33afd1444132781e31c6066baac49c4327a508",
     "assets/metadata-BRyrZvOr.json": "94962732b86fac553cbd4bbae903bd3c7e45261a07bcb0a1801862021b3d45da",
     "assets/sets-BfT6k5JB.json": "1c6ec6c65f0c14df55b8c7a77421ef88f2343692ee4a008f9f312202171cd5bb",
-    "index.html": "46104638bfc46b90c0bb93a7cb1ebc69cf128990d5b505d8fbdb023cf44ff802"
+    "index.html": "d7d6d829766d4b02475a89a639d3cc74bbbd9ad5b950de028df033fb75217227"
   }
 }

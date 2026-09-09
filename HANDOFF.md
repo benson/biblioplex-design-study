@@ -2,6 +2,12 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Header fixes: hide the resize-handle pseudo-element in Study so it cannot
+compete with the permanent separators on hover; preserve resize hit targets and
+focus outlines. Explicitly neutralize production's descending-sort wrapper
+transform in ornamental mode so only the themed triangle rotates. Ascending
+and descending screenshots confirmed stable position and reversed row order.
+
 Third navigation variant `?sidebar=header` / App header: Benson said a persistent
 header must also use its right side for account/utilities. It uses the click-only
 sidebar controller, adds a full-width row, and relocates the existing sample
