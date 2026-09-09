@@ -5,7 +5,7 @@
 Benson now wants no subtitles beneath column headings, including condensed
 initials. This supersedes the earlier initial-plus-label decision. Removed
 caption nodes; full accessible sort labels and hover titles remain. Sort markers
-use geometric CSS shapes with Benson’s requested 8px top padding beside ornamental lettering (replacing the earlier upward offset),
+use geometric CSS shapes with Benson’s requested 6px top padding beside ornamental lettering (replacing the earlier upward offset),
 so diamond and both arrow states share a consistent visual center.
 
 ## Latest visual feedback — September 9, 2026
