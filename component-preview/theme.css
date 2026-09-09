@@ -99,7 +99,7 @@ html[data-component-theme="study"] :is(.grid-list-table, #listView > table) th[d
    the permanent separator as the visible column rule. */
 html[data-component-theme="study"] .collection-column-resize-handle::after { display: none; }
 html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table, #listView > table) th[data-study-label] {
-  height: 82px; padding: 15px 22px 15px 8px; font-size: 0; text-align: center;
+  height: 82px; padding: 15px 8px; font-size: 0; text-align: center;
   color: var(--study-jungle); vertical-align: middle;
 }
 html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table, #listView > table) th[data-study-label] > .col-label-full,
@@ -110,14 +110,14 @@ html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table,
 }
 html[data-component-theme="study"][data-headings="ornate"] .collection-sort-icon {
   position: relative; display: inline-grid; place-items: center; top: auto; right: auto;
-  width: 8px; height: 8px; margin-left: 6px; padding-top: 6px; vertical-align: middle;
+  width: 0; height: 8px; margin-left: 0; padding-top: 6px; vertical-align: middle;
   transform: none; visibility: visible;
 }
 html[data-component-theme="study"][data-headings="ornate"] .collection-sort-icon svg { display: none; }
 /* Production flips and translates the SVG wrapper for descending sorts.
    This theme flips its own triangle instead, so the wrapper must stay put. */
 html[data-component-theme="study"][data-headings="ornate"] thead th.sort-active[data-sort-direction] .collection-sort-icon { transform: none; }
-html[data-component-theme="study"][data-headings="ornate"] .collection-sort-icon::before { content: ''; width: 4px; height: 4px; background: currentColor; transform: rotate(45deg); }
+html[data-component-theme="study"][data-headings="ornate"] .collection-sort-icon::before { content: ''; position: absolute; left: 6px; top: 6px; width: 4px; height: 4px; background: currentColor; transform: rotate(45deg); }
 html[data-component-theme="study"][data-headings="ornate"] .sort-active .collection-sort-icon::before { width: 8px; height: 6px; transform: none; clip-path: polygon(50% 0,100% 100%,0 100%); }
 html[data-component-theme="study"][data-headings="ornate"] .sort-active[data-sort-direction="desc"] .collection-sort-icon::before { transform: rotate(180deg); }
 html[data-component-theme="study"] :is(.grid-list-table, #listView > table) tbody td { border-color: color-mix(in srgb,var(--study-sage) 47%,var(--study-paper)); }

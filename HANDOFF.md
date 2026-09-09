@@ -2,6 +2,11 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Ornamental header lettering now uses equal horizontal padding and centers the
+label itself. Sort indicators occupy no inline width and sit 6px to its right,
+so their presence no longer pulls the text left. Visually checked initials and
+full labels between permanent separators.
+
 Header fixes: hide the resize-handle pseudo-element in Study so it cannot
 compete with the permanent separators on hover; preserve resize hit targets and
 focus outlines. Explicitly neutralize production's descending-sort wrapper
