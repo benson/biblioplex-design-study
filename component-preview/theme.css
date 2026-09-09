@@ -14,7 +14,7 @@ html body.biblioplex-storybook { height: 100dvh; overflow: hidden; }
 #component-controls input { accent-color: #4d6861; }
 #component-status { font: 11px 'DM Sans', sans-serif; margin: 6px 0 0; color: #657060; }
 #component-status:empty { display: none; }
-#component-stage { height: calc(100dvh - var(--study-controls-height)); overflow: auto; min-height: 0; background: #edeae3; padding: 16px 20px 22px; }
+#component-stage { height: calc(100dvh - var(--study-controls-height)); overflow: auto; min-height: 0; background: #edeae3; padding: 0; }
 #component-stage > .bpx-full-app-shell-story { height: 100%; }
 #component-stage .app-shell { height: 100%; min-height: 0; }
 #component-stage > .bpx-app-view-stage { min-height: 100%; }
@@ -61,7 +61,7 @@ html[data-component-theme="study"] {
   --color-loc-container-text: #665c46;
   --color-loc-container-line: var(--study-ochre);
 }
-html[data-component-theme="study"] .app-shell { border: 6px solid var(--study-jungle); background: var(--study-jungle); }
+html[data-component-theme="study"] .app-shell { border: 0; box-shadow: none; background: var(--study-jungle); }
 html[data-component-theme="study"] .app-header,
 html[data-component-theme="study"] .app-left {
   --color-surface: var(--study-jungle);
@@ -85,8 +85,12 @@ html[data-component-theme="study"] .app-left input[type="search"] { background: 
 html[data-component-theme="study"] .card-name,
 html[data-component-theme="study"] .card-preview-link { font-family: 'IM Fell English',Georgia,serif; font-size: 16px; }
 html[data-component-theme="study"] :is(.grid-list-table, #listView > table) thead th { background: var(--study-paper); box-shadow: inset 0 -3px 0 -1px var(--study-ochre); }
+html[data-component-theme="study"] :is(.grid-list-table, #listView > table) th[data-study-label]:not(:last-child)::after {
+  content: ''; position: absolute; top: 18%; bottom: 18%; right: 0; width: 1px;
+  background: color-mix(in srgb,var(--study-rule) 65%,transparent); pointer-events: none;
+}
 html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table, #listView > table) th[data-study-label] {
-  height: 82px; padding: 28px 22px 15px 8px; font-size: 0; text-align: center;
+  height: 82px; padding: 15px 22px 15px 8px; font-size: 0; text-align: center;
   color: var(--study-jungle); vertical-align: middle;
 }
 html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table, #listView > table) th[data-study-label] > .col-label-full,
@@ -94,10 +98,6 @@ html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table,
 html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table, #listView > table) th[data-study-label]::before {
   content: attr(data-study-label); display: inline-block; vertical-align: middle; font: 700 30px/1 'UnifrakturCook',Georgia,serif;
   letter-spacing: 0; text-transform: none; text-shadow: 0 1px var(--study-paper-light);
-}
-html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table, #listView > table) th[data-study-label]::after {
-  content: ''; position: absolute; top: 9px; left: 12px; right: 12px; height: 9px;
-  border: 1px solid var(--study-ochre); border-bottom: 0; border-radius: 50% 50% 0 0/100% 100% 0 0; pointer-events: none;
 }
 html[data-component-theme="study"][data-headings="ornate"] .collection-sort-icon {
   position: relative; display: inline-grid; place-items: center; top: auto; right: auto;
@@ -114,20 +114,12 @@ html[data-component-theme="study"][data-frame="tactile"] :is(#cardPreview, .deck
 html[data-component-theme="study"] #cardPreview { padding: 9px; border-radius: 2px; }
 html[data-component-theme="study"] #cardPreview img { border-radius: 9px; }
 html[data-component-theme="study"] .card-preview-info-eyebrow { display: none; }
-html[data-component-theme="study"][data-frame="quiet"] .app-shell { border-width: 1px; }
-html[data-component-theme="study"][data-lighting="top-right"] .app-shell {
-  border-top-color: color-mix(in srgb,var(--study-jungle) 65%,#fff2ce);
-  border-right-color: color-mix(in srgb,var(--study-jungle) 76%,#fff2ce);
-  border-bottom-color: color-mix(in srgb,var(--study-jungle) 75%,#14221a);
-  border-left-color: color-mix(in srgb,var(--study-jungle) 67%,#14221a);
-  box-shadow: -3px 5px 5px #18241d26,-13px 20px 24px -8px #18241d35;
-}
 html[data-component-theme="study"][data-lighting="top-right"] .app-header { background: linear-gradient(105deg,#10251b15,#fff3ce35),var(--study-jungle); }
 html[data-component-theme="study"][data-lighting="top-right"] .app-left { background: linear-gradient(205deg,transparent,#0c201b35),var(--study-jungle); }
 html[data-component-theme="study"][data-lighting="top-right"] .app-center,
 html[data-component-theme="study"][data-lighting="top-right"] .bpx-app-view-stage {
   background: radial-gradient(ellipse at 100% 0%,#fff9e785,transparent 65%),linear-gradient(225deg,transparent 28%,#74592d14),var(--study-paper);
-  box-shadow: inset -5px 7px 8px -5px #302b2166,inset -16px 20px 28px -17px #302b2140;
+  box-shadow: none;
 }
 html[data-component-theme="study"][data-lighting="top-right"] :is(#cardPreview, .deck-details-modal-card, .detail-drawer) {
   background: radial-gradient(ellipse at 100% 0%,#fff9e775,transparent 75%),var(--study-paper);
@@ -135,6 +127,7 @@ html[data-component-theme="study"][data-lighting="top-right"] :is(#cardPreview, 
   border-right-color: color-mix(in srgb,var(--study-jungle) 76%,#fff2ce);
   box-shadow: -3px 5px 7px #14221c26,-12px 18px 30px #14221c40;
 }
+html[data-component-theme="study"] #detailDrawer.detail-drawer:not(.visible) { box-shadow: none; }
 @media(max-width:700px) {
   #component-stage { padding: 0; }
   .component-study-controls { padding: 10px 12px; }

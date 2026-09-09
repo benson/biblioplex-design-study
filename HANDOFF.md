@@ -2,6 +2,14 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Latest refinement: removed the ornamental arches above column headings and
+replaced them with quiet vertical separators confined to the header. Recentered
+the lettering, retaining the 6px sort-icon padding. Removed outer stage margins,
+beveled app borders, exterior shadows, and the content-area inset shadow. Keep
+dimensional framing on overlays; closed drawers must not cast an offscreen
+shadow across the page. Desktop and 390px layout checked. This supersedes the
+earlier outer-frame treatment; production remains unchanged.
+
 Benson asked to continue refinement using the real app components, so he can
 interact with them before committing to a theme. The next preview is at
 `https://bensonperry.com/biblioplex-design-study/components/`. Its source is
