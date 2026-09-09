@@ -1,5 +1,13 @@
 # Biblioplex visual study — handoff and continuation plan
 
+## Latest header refinement — September 9, 2026
+
+Benson now wants no subtitles beneath column headings, including condensed
+initials. This supersedes the earlier initial-plus-label decision. Removed
+caption nodes; full accessible sort labels and hover titles remain. Sort markers
+use geometric CSS shapes with a 2px optical lift beside ornamental lettering,
+so diamond and both arrow states share a consistent visual center.
+
 ## Latest visual feedback — September 9, 2026
 
 Benson wants material character without extra flavor text or quips. Removed

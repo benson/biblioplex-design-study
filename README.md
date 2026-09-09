@@ -15,7 +15,7 @@ No build or dependency install is required. GitHub Pages deploys `public/` throu
 - Pair each proposed treatment with its reference and rationale.
 - Keep comparison controls visible and preserve their URL representation.
 - Use the same sample content across alternatives.
-- Full decorative heading words have no repeated caption; narrow columns may use initials with a readable label.
+- Column headings never have subtitles; narrow columns use initials. Full names remain available to assistive technology and on hover.
 - Sorting and resizing are independent; resize handles support pointer drag and arrow keys.
 - Preserve keyboard focus, native dialog cancellation, responsive layout, and reduced-motion behavior.
 - This study informs a later production Storybook slice; it does not substitute for checking production components.

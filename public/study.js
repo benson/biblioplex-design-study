@@ -181,15 +181,14 @@ function initializeTable() {
     const sort = node('button', 'sort-button'); sort.type = 'button'; sort.setAttribute('aria-label', `Sort by ${column.label.toLowerCase()}`);
     const arch = node('span', 'header-arch'); arch.setAttribute('aria-hidden', 'true');
     const letter = node('span', 'header-letter'); letter.setAttribute('aria-hidden', 'true');
-    letter.append(node('span', 'header-word', column.title), node('span', 'header-initial', column.initial), node('span', 'header-arrow', '◇'));
-    const caption = node('span', 'header-caption', column.label); caption.setAttribute('aria-hidden', 'true');
-    sort.append(arch, letter, caption);
+    letter.append(node('span', 'header-word', column.title), node('span', 'header-initial', column.initial), node('span', 'header-arrow'));
+    sort.title = column.label;
+    sort.append(arch, letter);
     sort.addEventListener('click', () => {
       state.ascending = state.sort === column.key ? !state.ascending : true; state.sort = column.key;
       $$('th[data-key]', table).forEach((header) => {
         const active = header.dataset.key === state.sort;
         header.setAttribute('aria-sort', active ? (state.ascending ? 'ascending' : 'descending') : 'none');
-        $('.header-arrow', header).textContent = active ? (state.ascending ? '▲' : '▼') : '◇';
       });
       renderCollection();
     });
