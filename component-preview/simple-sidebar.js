@@ -106,9 +106,15 @@ export function connectSimpleSidebar(root, { appHeader = false } = {}) {
         if (event.target.closest('.mobile-utility-menu-panel a, .mobile-utility-menu-panel button')) utility.open = false;
       });
     }
-    const accountControl = account?.querySelector('#syncAccountSlot');
-    if (accountControl) tools.append(accountControl);
+    const placeAccount = () => {
+      const accountControl = root.querySelector('#syncAccountSlot');
+      if (accountControl && accountControl.parentElement !== tools) tools.append(accountControl);
+    };
     header.append(tools);
+    placeAccount();
+    // Responsive production layout moves this slot to its mobile navigation.
+    // This variant owns the slot in the app header at every viewport size.
+    new MutationObserver(placeAccount).observe(root, { childList: true, subtree: true });
   }
   const handle = document.createElement('div');
   handle.className = 'simple-sidebar-resize';
