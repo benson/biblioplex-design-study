@@ -1,5 +1,23 @@
 # Biblioplex visual study — handoff and continuation plan
 
+## Completed continuation — September 9, 2026
+
+Published at https://bensonperry.com/biblioplex-design-study/ from
+https://github.com/benson/biblioplex-design-study . Deployment run
+34387928554 passed; published source commit: `2338e97`.
+
+Remaining checks passed: 390px mobile layout without page overflow, card and
+deck dialog screenshots, gallery with 16 entries, both enlarged references,
+working brief, and actual clipboard URL equality. Fixed stale custom name
+validity when reopening a cancelled deck draft; invalid submission, reopening,
+and saving were verified. Live HTTPS browser check rendered 16 rows, decoded
+card artwork, and returned HTTP 200 for the page and all five local assets.
+Existing card printings were retained. Biblioplex production was not changed.
+
+Next: collect Benson's visual feedback on this stable study. The remainder of
+this document is the historical pre-publication handoff, retained for context;
+its pending-publication and pending-check statements are superseded above.
+
 Updated September 9, 2026. Benson explicitly requested this handoff to continue in a fresh session. The current work is paused for that transition.
 
 ## The task
