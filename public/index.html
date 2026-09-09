@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#edeae3">
+  <meta name="description" content="An evolving visual study for Biblioplex: translating fantasy publishing, physical collections, and personal software into a working interface.">
+  <title>Biblioplex — visual study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./study.css">
+  <script type="module" src="./study.js"></script>
+</head>
+<body>
+  <header class="study-header">
+    <a class="study-identity" href="./"><span class="study-monogram">B</span><span>Biblioplex <span class="study-divider">/</span> <strong>Visual study</strong></span></a>
+    <div class="study-header-actions"><span class="study-edition">01 · The working archive</span><button id="copy-link" class="study-button">Copy this look’s link</button></div>
+  </header>
+  <div class="study-layout">
+    <aside class="study-rail" aria-label="Design study controls and references">
+      <div class="study-rail-heading"><span class="overline">Explore the direction</span><button id="reset-study" class="text-button">Reset</button></div>
+      <p class="study-lead">A collector’s cabinet.<br>A beautifully kept record.</p>
+      <form id="design-controls" class="study-controls">
+        <fieldset><legend>Palette</legend><div class="segmented"><label><input type="radio" name="palette" value="muted" checked><span>Muted</span></label><label><input type="radio" name="palette" value="saturated"><span>Saturated</span></label></div></fieldset>
+        <div id="palette-swatches" class="swatches" aria-label="Exact reference colors"></div>
+        <fieldset><legend>Column headings</legend><div class="segmented"><label><input type="radio" name="headings" value="ornate" checked><span>Ornamental</span></label><label><input type="radio" name="headings" value="plain"><span>Plain</span></label></div></fieldset>
+        <fieldset><legend>Framing & materials</legend><div class="segmented"><label><input type="radio" name="frame" value="tactile" checked><span>Tactile</span></label><label><input type="radio" name="frame" value="quiet"><span>Quiet</span></label></div></fieldset>
+        <label class="toggle-label"><span>Compact rows</span><input type="checkbox" name="compact" role="switch"></label>
+      </form>
+      <div class="reference-block">
+        <h2>Reference → interpretation</h2>
+        <button class="reference-image" data-reference="grid" aria-label="Enlarge medieval grid reference"><img src="./assets/medieval-grid-reference.png" alt="Tarot reference with expressive medieval lettering above a dense ruled table"><span>01 · The information grid <span aria-hidden="true">↗</span></span></button>
+        <p>Ornamental headings, readable working text, and fine rules. Full words stand alone; narrow columns keep a plain label under an initial.</p>
+        <button class="reference-image palette-image" data-reference="palette" aria-label="Enlarge palette reference"><img src="./assets/palette-reference.png" alt="Two palettes of ochre, ember, jungle, cobalt, plum, and sage with hex values"><span>02 · The ink palette <span aria-hidden="true">↗</span></span></button>
+        <p>Jungle frames the collection. Ochre draws the fine details. Ember, cobalt, and plum mark locations; sage softens selected surfaces.</p>
+      </div>
+      <button id="open-brief" class="study-button brief-button">Read the working brief <span aria-hidden="true">↗</span></button>
+      <p class="study-footnote">A style exploration with sample cards. Changes here don’t affect your collection.</p>
+    </aside>
+
+    <main class="study-canvas" aria-label="Interactive Biblioplex study">
+      <div class="canvas-caption"><span><span class="status-dot"></span> Live specimen</span><span>Try the headers, cards, filters, and deck details.</span></div>
+      <div id="specimen" class="app" data-headings="ornate" data-frame="tactile">
+        <header class="app-bar"><button class="app-brand" data-view="collection" aria-label="Go to collection">Biblioplex <span aria-hidden="true">✦</span></button><span class="app-bar-subtitle">A personal card library</span><span class="app-save-state"><span aria-hidden="true">✓</span> Saved locally</span></header>
+        <div class="app-layout">
+          <aside class="app-sidebar">
+            <span class="nav-eyebrow">Your library</span>
+            <nav aria-label="Biblioplex navigation">
+              <button class="nav-item" data-view="collection" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h4v16H4zM11 4h4v16h-4zM18 4l4 15-3 1-4-15"/></svg><span>Collection</span><small id="nav-card-count"></small></button>
+              <div class="nav-divider"></div><span class="nav-eyebrow">Decks</span>
+              <button class="nav-item" data-view="deck"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg><span class="deck-title">Breya</span></button>
+              <div class="nav-divider"></div><span class="nav-eyebrow">Containers</span>
+              <button class="nav-item container-nav" data-location="Trade binder"><span class="location-dot ochre"></span><span>Trade binder</span></button>
+              <button class="nav-item container-nav" data-location="Blue box"><span class="location-dot cobalt"></span><span>Blue box</span></button>
+              <button class="nav-item container-nav" data-location="Red box"><span class="location-dot ember"></span><span>Red box</span></button>
+            </nav>
+            <div class="library-plate"><span class="library-plate-initial">B</span><span>A place for<br>remarkable things.</span></div>
+          </aside>
+          <div class="app-workspace">
+            <section id="collection-view">
+              <header class="workspace-header"><div><div class="app-eyebrow">The collection register</div><h1>Collected treasures</h1><p id="collection-summary"></p></div><span class="edition-mark" aria-hidden="true">No. <strong>01</strong></span></header>
+              <div class="collection-tools">
+                <label class="app-search"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Find a card…" aria-label="Search collection"></label>
+                <label class="location-filter"><span class="sr-only">Filter by location</span><select id="location-filter"><option value="">All locations</option><option>Breya</option><option>Trade binder</option><option>Blue box</option><option>Red box</option></select></label>
+                <div class="view-switch" aria-label="Collection display"><button data-display="table" aria-label="Table view" aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 10h18M3 15h18M10 4v16"/></svg></button><button data-display="gallery" aria-label="Gallery view" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="8" rx="1"/><rect x="14" y="3" width="7" height="8" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/></svg></button></div>
+              </div>
+              <div id="selection-bar" class="selection-bar" hidden><span id="selection-count"></span><button id="clear-selection">Clear selection</button></div>
+              <div class="table-scroll" id="table-view"><table id="collection-table" aria-label="Sample card collection"><colgroup></colgroup><thead><tr></tr></thead><tbody></tbody></table></div>
+              <div id="gallery-view" class="card-gallery" hidden></div>
+              <div id="no-results" class="no-results" hidden><span aria-hidden="true">✦</span><h2>No cards found</h2><p>Try another name or look in all locations.</p><button id="clear-filters" class="app-button">Clear filters</button></div>
+              <footer class="collection-footer"><span id="result-count" aria-live="polite"></span><span class="footer-imprint">Collected with care.</span></footer>
+            </section>
+            <section id="deck-view" hidden>
+              <header class="workspace-header"><div><div class="app-eyebrow" id="deck-format-label">Your decks / Commander</div><h1 class="deck-title">Breya</h1><p>Breya, Etherium Shaper</p></div><button id="edit-deck" class="app-button primary">Edit details</button></header>
+              <div class="deck-overview"><button id="commander-preview" aria-label="View Breya card"><img id="commander-art" alt="Breya, Etherium Shaper card artwork"></button><div class="deck-overview-copy"><span class="record-label">The artifact collection</span><p id="deck-description">An artifact toolbox, assembled one curious piece at a time.</p><span class="deck-color-identity">White · Blue · Black · Red</span></div></div>
+              <div class="deck-section-header"><h2>The decklist</h2><span>Sample excerpt</span></div>
+              <div id="deck-columns" class="deck-columns"></div>
+              <footer class="collection-footer"><span>Names and artwork from Scryfall</span><span class="footer-imprint">A work in progress, worth keeping.</span></footer>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="study-observations"><div><span class="overline">What we’re testing</span><p>Can the richness live in the frame and headings while the cards stay easy to scan?</p></div><div><span class="overline">What comes next</span><p>Refine one direction, then carry it into the real Storybook components.</p></div></div>
+      <footer class="study-credits">Exploratory interface, not the production app. Sample quantities and prices. Magic: The Gathering card artwork © Wizards of the Coast. Card data and images via <a href="https://scryfall.com" target="_blank" rel="noreferrer">Scryfall</a>.</footer>
+    </main>
+  </div>
+
+  <dialog id="deck-dialog" class="app-dialog" aria-labelledby="deck-dialog-title"><form id="deck-form"><header class="dialog-header"><span class="app-eyebrow">Deck record · 01</span><h2 id="deck-dialog-title">Edit deck details</h2><button type="button" class="dialog-close" data-close aria-label="Close deck details">×</button></header><div class="dialog-body"><label>Deck name<input name="name" required maxlength="80"></label><label>Description<textarea name="description" rows="3" maxlength="500"></textarea></label><label>Format<select name="format"><option>Commander</option><option>Modern</option><option>Legacy</option><option>Casual</option></select></label></div><footer class="dialog-footer"><button type="button" class="app-button" data-close>Cancel</button><button type="submit" class="app-button primary">Save changes</button></footer></form></dialog>
+  <dialog id="card-dialog" class="app-dialog card-dialog" aria-labelledby="card-dialog-title"><button class="dialog-close" data-close aria-label="Close card details">×</button><div class="card-detail-layout"><img id="card-full-image" alt=""><div class="card-detail-copy"><span class="app-eyebrow">From the collection</span><h2 id="card-dialog-title"></h2><p id="card-type"></p><p id="card-oracle"></p><dl id="card-record"></dl><a id="card-source" target="_blank" rel="noreferrer">View on Scryfall ↗</a></div></div></dialog>
+  <dialog id="reference-dialog" class="reference-dialog" aria-label="Enlarged design reference"><button class="dialog-close" data-close aria-label="Close reference">×</button><img id="reference-full-image" alt=""><p id="reference-caption"></p></dialog>
+  <dialog id="brief-dialog" class="brief-dialog" aria-labelledby="brief-title"><button class="dialog-close" data-close aria-label="Close brief">×</button><span class="overline">Working brief · September 9, 2026</span><h2 id="brief-title">The working archive</h2><p class="brief-intro">The richness of fantasy publishing. The pleasure of keeping physical objects. The directness of personal software.</p><h3>The cards are the treasure</h3><p>Artwork and information stay important. The surrounding material should make them feel collected and cared for.</p><h3>Rich at the edges, clear at the center</h3><p>Give framing, headings, and special surfaces room for expression. Keep repeated rows and forms comfortable to use.</p><h3>Materials have a job</h3><p>Paper holds records, a frame contains them, an inset field invites writing. Depth should describe the interface.</p><h3>Dense can be beautiful</h3><p>Use alignment, proportion, typography, and rules to make a dense collection legible.</p><h3>Test the feeling through use</h3><p>Compare sorting, narrow columns, real artwork, empty results, and an edit dialog. We’ll choose treatments here, then verify them in the production components.</p><div class="brief-decision"><strong>Current direction</strong><p>B’s material character; the exact supplied palettes; medieval column lettering; no repeated label beneath a full-word heading. Everything else is still open to refinement.</p></div></dialog>
+  <div id="study-toast" class="study-toast" role="status" hidden></div>
+</body>
+</html>
