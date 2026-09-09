@@ -1,0 +1,1 @@
+import{n as e,t}from"./CollectionTableRows-DrlqbSCz.js";export{t as CollectionTableRows,e as mountCollectionTableRows};

@@ -27,6 +27,8 @@ jobs:
           node --check public/cards.js
           node --check scripts/serve.mjs
           node --check scripts/build.mjs
+          node --check scripts/build-components.mjs
+          node scripts/check-components.mjs
       - name: Fingerprint browser assets
         run: node scripts/build.mjs
       - uses: actions/configure-pages@v5

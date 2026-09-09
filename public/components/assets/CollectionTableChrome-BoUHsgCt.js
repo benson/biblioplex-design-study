@@ -1,0 +1,1 @@
+import{i as e,n as t,r as n,t as r}from"./CollectionTableChrome-C78HYStY.js";export{r as TableColumns,t as TableHeader,n as mountTableColumns,e as mountTableHeader};

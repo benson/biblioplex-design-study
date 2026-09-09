@@ -1,5 +1,39 @@
 # Biblioplex visual study — handoff and continuation plan
 
+## Current direction: actual components — September 9, 2026
+
+Benson asked to continue refinement using the real app components, so he can
+interact with them before committing to a theme. The next preview is at
+`https://bensonperry.com/biblioplex-design-study/components/`. Its source is
+`component-preview/`; rebuilding instructions and boundaries are in that
+directory's README. The original study remains available as reference and links
+to the component preview.
+
+The preview imports Biblioplex's real production-backed Storybook workbenches,
+including React table/rows, resize/sort/selection, hover, card drawer, gallery,
+view settings, search/filter code, deck workspace, and deck form. It uses sample
+fixtures; it does not boot auth/sync or change production. The top controls
+compare Study / Current app, collection / deck, both palettes, headings,
+framing, lighting, and density. Use the top View selector to change scenes.
+Backend workflows are outside this workbench. Appearance controls apply without
+remounting the active components; scene navigation resets the fixture.
+
+Biblioplex source is pinned to `3dc13919ab7cf6aa73aa4eb073abae0d78f8c511` on the
+isolated `design-study-components` branch. Only Storybook fixture wiring changed
+there: filtering/ready callbacks and forwarding binder settings. No production
+React component or theme was changed. Full CI run `34393175118` passed, including
+check, Storybook, interactions, visual tests, and browser smoke.
+
+Local checks passed: production bundle renders 9 sample rows in actual React
+roots; search narrows Sol Ring to one row; sorting, resize, selection, gallery,
+column visibility/density, binder layout, hover, card drawer, and deck form
+cancel/save work. Desktop, 390px mobile collection, browse drawer, and deck dialog
+screenshots were reviewed. Copy-link clipboard equality passed. Compiled assets
+are fingerprinted and verified against source/build hashes in Pages CI.
+
+Continue visual refinement in `component-preview/theme.css`. Do not return to
+polishing the original replica as the primary deliverable.
+
 ## Card hover previews
 
 List card names/thumbnails now show a framed image and edition popover after

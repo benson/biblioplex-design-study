@@ -2,6 +2,11 @@
 
 A standalone, revisitable design study for translating Benson’s moodboard into Biblioplex. This is a sample interface, not a production client. It does not authenticate or read/write collection data.
 
+The [real component preview](https://bensonperry.com/biblioplex-design-study/components/)
+uses Biblioplex's production-backed workbenches with an isolated theme. Continue
+pixel-level refinement there; the original page remains the visual-reference
+study. See `component-preview/README.md` for source provenance and rebuilding.
+
 The public page pairs the supplied grid and palette references with a collection specimen, card gallery/detail, deck workspace, and editable sample dialog. Visible controls compare exact saturated/muted palettes, ornamental/plain headers, tactile/quiet framing, compact rows, and ambient/top-right lighting. Settings and specimen view are encoded in the URL. A copied URL recreates the appearance; sample edits and selections are intentionally visit-local.
 
 ## Run locally
