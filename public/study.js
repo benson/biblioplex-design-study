@@ -131,6 +131,7 @@ function updateSelection() {
   });
 }
 function renderCollection() {
+  hideCardPreview();
   const visible = filteredCards();
   const tbody = $('tbody', table), gallery = $('#gallery-view');
   tbody.replaceChildren(); gallery.replaceChildren();
@@ -146,6 +147,14 @@ function renderCollection() {
         const button = node('button', 'card-name-button'); button.type = 'button';
         const image = node('img', 'card-thumb'); image.src = card.art; image.alt = ''; image.loading = 'lazy';
         button.append(image, node('span', 'card-name', card.name));
+        button.addEventListener('pointerenter', (event) => {
+          if (event.pointerType === 'mouse') queueCardPreview(button, card);
+        });
+        button.addEventListener('pointerleave', deferHideCardPreview);
+        button.addEventListener('focus', () => {
+          if (button.matches(':focus-visible')) queueCardPreview(button, card, 0);
+        });
+        button.addEventListener('blur', hideCardPreview);
         button.addEventListener('click', () => openCard(card)); cell.append(button);
       } else if (key === 'location') {
         const label = node('span', 'location-label', card.location); label.dataset.location = card.location; cell.append(label);
@@ -225,6 +234,7 @@ function initializeTable() {
   });
 }
 function setView(view) {
+  hideCardPreview();
   state.view = view;
   $('#collection-view').hidden = view !== 'collection'; $('#deck-view').hidden = view !== 'deck';
   $$('.app-sidebar [data-view]').forEach((button) => { if (button.dataset.view === view && !state.location) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current'); });
@@ -247,7 +257,53 @@ function updateDisplay() {
   renderCollection(); updateUrl();
 }
 
+const cardPreview = node('div', 'card-hover-preview');
+cardPreview.id = 'card-hover-preview';
+cardPreview.setAttribute('role', 'tooltip');
+cardPreview.hidden = true;
+const previewImage = node('img');
+const previewCaption = node('div', 'card-hover-caption');
+cardPreview.append(previewImage, previewCaption);
+document.body.append(cardPreview);
+let previewTimer, previewAnchor;
+function hideCardPreview() {
+  clearTimeout(previewTimer);
+  previewAnchor?.removeAttribute('aria-describedby');
+  previewAnchor = null;
+  cardPreview.hidden = true;
+}
+function deferHideCardPreview() {
+  clearTimeout(previewTimer);
+  previewTimer = setTimeout(hideCardPreview, 160);
+}
+function queueCardPreview(anchor, card, delay = 220) {
+  hideCardPreview();
+  previewTimer = setTimeout(() => {
+    if (!anchor.isConnected || document.querySelector('dialog[open]')) return;
+    previewAnchor = anchor;
+    previewImage.src = card.image;
+    previewImage.alt = card.name;
+    previewCaption.replaceChildren(node('strong', '', card.name), node('span', '', card.setName));
+    cardPreview.hidden = false;
+    const rect = anchor.getBoundingClientRect();
+    const width = cardPreview.offsetWidth, height = cardPreview.offsetHeight;
+    let left = rect.right + 12;
+    if (left + width > innerWidth - 12) left = rect.left - width - 12;
+    cardPreview.style.left = `${Math.max(12, Math.min(left, innerWidth - width - 12))}px`;
+    cardPreview.style.top = `${Math.max(12, Math.min(rect.top - 24, innerHeight - height - 12))}px`;
+    anchor.setAttribute('aria-describedby', cardPreview.id);
+  }, delay);
+}
+cardPreview.addEventListener('pointerenter', () => clearTimeout(previewTimer));
+cardPreview.addEventListener('pointerleave', deferHideCardPreview);
+document.addEventListener('keydown', (event) => { if (event.key === 'Escape') hideCardPreview(); });
+document.addEventListener('scroll', (event) => {
+  if (!cardPreview.contains(event.target)) hideCardPreview();
+}, true);
+window.addEventListener('resize', hideCardPreview);
+
 function openCard(card) {
+  hideCardPreview();
   $('#card-full-image').src = card.image; $('#card-full-image').alt = card.name;
   $('#card-dialog-title').textContent = card.name; $('#card-type').textContent = card.type; $('#card-oracle').textContent = card.oracle;
   const record = $('#card-record'); record.replaceChildren();

@@ -1,5 +1,14 @@
 # Biblioplex visual study — handoff and continuation plan
 
+## Card hover previews
+
+List card names/thumbnails now show a framed image and edition popover after
+a short mouse-hover delay, or immediately on keyboard focus. Matches palette,
+framing, and directional lighting; clamps to viewport. Pointer can enter the
+preview; Escape, blur, scroll, view changes, and opening a dialog dismiss it.
+Click still opens the full card dialog. Hover, keyboard, dismissal, dialog,
+and bottom-edge positioning checked in browser.
+
 ## Asset caching fix
 
 Publishing now builds `dist/` with content-hashed CSS, JS, and imported cards
