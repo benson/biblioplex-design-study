@@ -8,7 +8,7 @@ The public page pairs the supplied grid and palette references with a collection
 
 `node scripts/serve.mjs` serves `public/` on `http://127.0.0.1:4198`.
 
-No build or dependency install is required. GitHub Pages deploys `public/` through the included workflow. The site follows Benson’s GitHub Pages project architecture at `https://bensonperry.com/biblioplex-design-study/`.
+No build or dependency install is required. GitHub Pages runs `node scripts/build.mjs` and deploys `dist/`. CSS, JavaScript, and the imported card dataset receive content-hashed filenames automatically on each change, preventing stale asset reuse. The site follows Benson’s GitHub Pages project architecture at `https://bensonperry.com/biblioplex-design-study/`.
 
 ## Keep the study useful
 

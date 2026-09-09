@@ -1,5 +1,11 @@
 # Biblioplex visual study — handoff and continuation plan
 
+## Asset caching fix
+
+Publishing now builds `dist/` with content-hashed CSS, JS, and imported cards
+filenames using `scripts/build.mjs`. Local preview still serves `public/`.
+A supplied `v` entry-page revision is preserved in settings/share URLs.
+
 ## Latest header refinement — September 9, 2026
 
 Benson now wants no subtitles beneath column headings, including condensed

@@ -26,9 +26,12 @@ jobs:
           node --check public/study.js
           node --check public/cards.js
           node --check scripts/serve.mjs
+          node --check scripts/build.mjs
+      - name: Fingerprint browser assets
+        run: node scripts/build.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: public
+          path: dist
       - id: deployment
         uses: actions/deploy-pages@v4

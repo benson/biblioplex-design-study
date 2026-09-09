@@ -56,7 +56,9 @@ function toast(message) {
 }
 function updateUrl() {
   const next = new URL(location.href);
+  const revision = next.searchParams.get('v');
   next.search = '';
+  if (revision) next.searchParams.set('v', revision);
   for (const key of ['palette', 'headings', 'frame', 'lighting']) next.searchParams.set(key, settings[key]);
   if (settings.compact) next.searchParams.set('compact', '1');
   if (state.view !== 'collection') next.searchParams.set('view', state.view);
