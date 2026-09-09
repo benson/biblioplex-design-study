@@ -2,6 +2,20 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Navigation A/B: `?sidebar=original` preserves the existing pattern;
+`?sidebar=simple` enables the opt-in collection-shell variant. The Navigation
+selector reloads between them. Simple uses a stable header toggle, explicit
+open/closed states without peeking, a 240px resizable sidebar, quieter groups,
+and the existing account control at the bottom. Desktop open/closed preference
+is stored only under `study-simple-sidebar-open`. Mobile has a navigation drawer
+with backdrop/Escape/navigation dismissal; existing Browse & Filter still works.
+The variant reuses production navigation and state helpers, with its interaction
+policy isolated in `component-preview/simple-sidebar.js`. The deck-only fixture
+has no sidebar, so navigation variants apply to the Collection scene.
+Validated mouse and keyboard resize, stable toggle coordinates, no hover peek,
+reload persistence, both themes, original collapse/reopen, and mobile navigation,
+backdrop/Escape, and Browse & Filter. Production source pin is unchanged.
+
 Sidebar reopen fix: offset the production fixed reopen button and peeking
 sidebar by the measured playground toolbar height, in both themes. Previously
 the toolbar covered the reopen button. Real mouse collapse, hover peek, and

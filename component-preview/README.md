@@ -15,6 +15,14 @@ deck workspace, and deck-details form come from Biblioplex. The preview provides
 fixture callbacks for settings and edits. Account, sync, import, and backend
 sharing are outside this component workbench; collection API requests are blocked.
 
+In the Collection scene, compare navigation with `?sidebar=original` and
+`?sidebar=simple`, or the Navigation selector. The simple variant adds a stable
+header toggle, click-only open/close, 240px default width with mouse/keyboard
+resizing, bottom account placement, and a mobile navigation drawer. Its policy
+lives in `simple-sidebar.js`; underlying navigation remains the real components.
+The original pattern remains the default. Only the simple variant saves its
+open/closed preference, using a study-specific local-storage key.
+
 ## Rebuild
 
 1. Create an isolated Biblioplex worktree at the commit in `source.json`.

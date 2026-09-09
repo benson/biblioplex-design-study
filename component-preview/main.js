@@ -14,6 +14,7 @@ import { listOrderedCollectionTableColumns } from '@app/views/listRowView.js';
 import { filterAndSortCollection, initSearch, moreFiltersSnapshot, applyUrlStateOnLoad } from '@app/search.js';
 import { getMultiselectValue, populateMultiselect } from '@app/multiselect.js';
 import { connectCollectionSettings } from './collection-settings.js';
+import { connectSimpleSidebar } from './simple-sidebar.js';
 
 const form = document.querySelector('#component-controls');
 const stage = document.querySelector('#component-stage');
@@ -47,6 +48,7 @@ window.fetch = (input, init) => {
 function applyAppearance() {
   const root = document.documentElement;
   root.dataset.componentTheme = form.elements.theme.value;
+  root.dataset.sidebarVariant = form.elements.sidebar.value;
   for (const key of ['headings', 'frame', 'lighting']) root.dataset[key] = form.elements[key].value;
   root.dataset.compact = String(form.elements.compact.checked);
   for (const [key, value] of Object.entries(palettes[form.elements.palette.value])) root.style.setProperty(`--study-${key}`, value);
@@ -96,7 +98,7 @@ async function renderScene() {
   const view = scene === 'deck'
     ? deckMeta.render({ ...deckMeta.args, mode: 'decklist' })
     : buildApplicationShellStory({
-      ...shellMeta.args, sidebarWidth: 205, properCase: form.elements.theme.value === 'study',
+      ...shellMeta.args, sidebarWidth: form.elements.sidebar.value === 'simple' ? 240 : 205, properCase: form.elements.theme.value === 'study',
       filterFixtureCards: (cards) => filterAndSortCollection(cards, {
         ...moreFiltersSnapshot(),
         query: document.getElementById('searchInput')?.value || '',
@@ -104,6 +106,7 @@ async function renderScene() {
         colorIdentities: getMultiselectValue(document.getElementById('filterColorIdentity')),
       }).list,
       onFixtureReady: ({ render, cards, root }) => {
+        if (form.elements.sidebar.value === 'simple') connectSimpleSidebar(root);
         initSearch({ renderImpl: render });
         for (const [id, values] of [
           ['filterSet', cards.map((card) => card.setCode)],
@@ -124,7 +127,7 @@ async function renderScene() {
 }
 form.addEventListener('change', (event) => {
   applyAppearance();
-  if (event.target.name === 'scene') location.reload();
+  if (['scene', 'sidebar'].includes(event.target.name)) location.reload();
 });
 document.querySelector('#copy-study').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(location.href); status.textContent = 'Link copied.'; }
