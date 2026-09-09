@@ -6,15 +6,15 @@
   },
   "inputs": {
     "collection-settings.js": "1caa09b106fa68d99305cb8c2d0d36591ff52cfb2ff43523ea7c63621a88c57e",
-    "index.html": "bdb66996a5223140d7fc5315e518bae07377da0415da617fe8408dced3bd35e8",
-    "main.js": "9852074fcf2d2e6662391620cc53a7bcd44b8cdc9950fc96db83db176097522a",
-    "simple-sidebar.js": "ed9340f909d0ebd7bd2bcb8a1c7da4a046b5d76cff604d0bde2e00b22232dc92",
+    "index.html": "51f1f0604953699250401fdfc7085a39b19719827f9201d42187b816f60fa27f",
+    "main.js": "feeb70f6d2abd18129a1ce49df0b28e77130f0e4152075f0c372acebb197ce49",
+    "simple-sidebar.js": "be33f95474ff7bde966678e7707fd09cfa5c1487ec9f938b88ca6f222c88b771",
     "source.json": "3b83f7a4d5e728e647127dd8c6045c6cb2773b333ce311030ece427c709be48c",
-    "theme.css": "82752839af3a67c2a1bccaf95b840e413bdc43b794984b79c6593cf7b6da62d7",
+    "theme.css": "d5dbe7c77d28d1bb728e85d782d41d167dd3f676a107e52dab9630179779caed",
     "vite.config.mjs": "27e199c99b5732657383df7fefd457b81f4a290455449237bc620084879bced5"
   },
   "assets": {
-    "assets/index-CWQImW6E.js": "f75bd38804e14efd8051d1078e8a483d4450095313a804a9feeacdc7d640fecc",
+    "assets/index-MA3L38WK.js": "a5144b3c5a1c456ebada0b84917d52c9bb4a31db203cc5f1c69932930dd0da88",
     "assets/AccountStatus-QKuPTJJB.js": "db63f7661476135f591cd1e6c98d3f87f33bae3e2134bff036fb4fe752742ef8",
     "assets/ArchiveRestoreDialog-DLXYEsPh.js": "9b239868c9072f5dc1c0230c752ce5586a42ae8e026e5156147e98785fcb3e03",
     "assets/Banner-DKCX_dtR.js": "e103797efb56d3ae3dff803d4697cf06c6c0491bb8018d4149b93574a2bc28c1",
@@ -67,9 +67,9 @@
     "assets/preload-helper-HclGiUj8.js": "bba5840eec0028b00854bcd58fba80694d02d41e98417656424c05b26db7120c",
     "assets/view-8cZ67cmo.js": "277e663145a0b34947a773c1a57dbcdf0f9681ebc9932933d8bd34a4b97edc1b",
     "assets/NotoColorEmoji-COLRv1-CCV6F2KB.woff2": "cc1ca9eacebffd17e9064206ddd3144241be9a198aa0eeec72c8c26a3236f2c3",
-    "assets/index-Cz1HZvs2.css": "639063cc627f413bb8ae175208364ae7f5b18ce50087a6279df1ddf7489f03f9",
+    "assets/index-BFWnKUKm.css": "dec3697ba04534434076f60f71564fe3355523a777716535e74e4d2df83ea20a",
     "assets/metadata-BRyrZvOr.json": "94962732b86fac553cbd4bbae903bd3c7e45261a07bcb0a1801862021b3d45da",
     "assets/sets-BfT6k5JB.json": "1c6ec6c65f0c14df55b8c7a77421ef88f2343692ee4a008f9f312202171cd5bb",
-    "index.html": "601773e3a0c16ec3f446b76be0d2f41ba9e00adf18f2fad7760b23a969dcec8c"
+    "index.html": "d85d9f5e246681a58cb5b8f4ad125ce85b082ceb28b4c032a774fb0d7842253f"
   }
 }

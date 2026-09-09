@@ -98,7 +98,7 @@ async function renderScene() {
   const view = scene === 'deck'
     ? deckMeta.render({ ...deckMeta.args, mode: 'decklist' })
     : buildApplicationShellStory({
-      ...shellMeta.args, sidebarWidth: form.elements.sidebar.value === 'simple' ? 240 : 205, properCase: form.elements.theme.value === 'study',
+      ...shellMeta.args, sidebarWidth: form.elements.sidebar.value !== 'original' ? 240 : 205, properCase: form.elements.theme.value === 'study',
       filterFixtureCards: (cards) => filterAndSortCollection(cards, {
         ...moreFiltersSnapshot(),
         query: document.getElementById('searchInput')?.value || '',
@@ -106,7 +106,7 @@ async function renderScene() {
         colorIdentities: getMultiselectValue(document.getElementById('filterColorIdentity')),
       }).list,
       onFixtureReady: ({ render, cards, root }) => {
-        if (form.elements.sidebar.value === 'simple') connectSimpleSidebar(root);
+        if (form.elements.sidebar.value !== 'original') connectSimpleSidebar(root, { appHeader: form.elements.sidebar.value === 'header' });
         initSearch({ renderImpl: render });
         for (const [id, values] of [
           ['filterSet', cards.map((card) => card.setCode)],

@@ -2,8 +2,9 @@ import { applySidebarCollapsed, applySidebarPeek } from '@app/sidebarPreferences
 
 // An opt-in playground interaction variant. Keep the real navigation and app
 // state controller, replacing only its hover/pin policy and shell placement.
-export function connectSimpleSidebar(root) {
+export function connectSimpleSidebar(root, { appHeader = false } = {}) {
   root.classList.add('simple-sidebar-workbench');
+  root.classList.toggle('app-header-workbench', appHeader);
   const sidebar = root.querySelector('#appLeft');
   const shell = root.querySelector('.app-shell');
   const mobile = matchMedia('(max-width: 900px)');
@@ -94,6 +95,21 @@ export function connectSimpleSidebar(root) {
   // Move the existing account control without replacing its event handlers.
   const account = sidebar.querySelector('#sidebarBrandSlot');
   if (account) sidebar.append(account);
+  if (appHeader) {
+    const tools = document.createElement('div');
+    tools.className = 'simple-header-tools';
+    const utility = root.querySelector('.mobile-utility-menu');
+    if (utility) {
+      utility.removeAttribute('open');
+      tools.append(utility);
+      utility.addEventListener('click', (event) => {
+        if (event.target.closest('.mobile-utility-menu-panel a, .mobile-utility-menu-panel button')) utility.open = false;
+      });
+    }
+    const accountControl = account?.querySelector('#syncAccountSlot');
+    if (accountControl) tools.append(accountControl);
+    header.append(tools);
+  }
   const handle = document.createElement('div');
   handle.className = 'simple-sidebar-resize';
   handle.tabIndex = 0;

@@ -23,6 +23,11 @@ lives in `simple-sidebar.js`; underlying navigation remains the real components.
 The original pattern remains the default. Only the simple variant saves its
 open/closed preference, using a study-specific local-storage key.
 
+`?sidebar=header` selects App header: a persistent row with the sidebar toggle
+and brand on the left, and the existing sample account control and utility menu
+on the right. The simple variant instead fits its toggle into the sidebar or
+existing collection title row. Account/auth services remain outside the fixture.
+
 ## Rebuild
 
 1. Create an isolated Biblioplex worktree at the commit in `source.json`.

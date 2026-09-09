@@ -2,6 +2,14 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Third navigation variant `?sidebar=header` / App header: Benson said a persistent
+header must also use its right side for account/utilities. It uses the click-only
+sidebar controller, adds a full-width row, and relocates the existing sample
+account control and utility menu into its right side. Collection actions remain
+in the collection. Account/auth behavior remains the Storybook sample boundary;
+this is a layout experiment, not a live signed-in session. `simple` keeps the
+compact layout and `original` the original interactions.
+
 Correction after inspecting Benson's signed-in Linear in Chrome: no extra
 full-width header is needed. Simple variant now places brand/toggle within the
 sidebar's top row when open and the toggle beside the existing Collection title
