@@ -1,5 +1,14 @@
 # Biblioplex visual study — handoff and continuation plan
 
+## Latest visual feedback — September 9, 2026
+
+Benson wants material character without extra flavor text or quips. Removed
+visible slogans, decorative numbering, and redundant collection labeling. Added
+a visible Ambient / Top right lighting control, defaulting to top-right light,
+with URL persistence. CSS lights the rim and paper, shades the recess, and casts
+shadows down-left; artwork and text have no lighting overlay. Desktop and mobile
+screenshots reviewed; lighting restoration and 390px overflow check passed.
+
 ## Completed continuation — September 9, 2026
 
 Published at https://bensonperry.com/biblioplex-design-study/ from

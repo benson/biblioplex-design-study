@@ -2,7 +2,7 @@
 
 A standalone, revisitable design study for translating Benson’s moodboard into Biblioplex. This is a sample interface, not a production client. It does not authenticate or read/write collection data.
 
-The public page pairs the supplied grid and palette references with a collection specimen, card gallery/detail, deck workspace, and editable sample dialog. Visible controls compare exact saturated/muted palettes, ornamental/plain headers, tactile/quiet framing, and compact rows. Settings and specimen view are encoded in the URL. A copied URL recreates the appearance; sample edits and selections are intentionally visit-local.
+The public page pairs the supplied grid and palette references with a collection specimen, card gallery/detail, deck workspace, and editable sample dialog. Visible controls compare exact saturated/muted palettes, ornamental/plain headers, tactile/quiet framing, compact rows, and ambient/top-right lighting. Settings and specimen view are encoded in the URL. A copied URL recreates the appearance; sample edits and selections are intentionally visit-local.
 
 ## Run locally
 

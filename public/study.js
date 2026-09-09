@@ -6,11 +6,11 @@ const palettes = {
   muted: { ochre: '#A58B55', ember: '#8A5B48', jungle: '#4D6861', cobalt: '#526B8D', plum: '#6B5B70', sage: '#949B8B' },
   saturated: { ochre: '#B78B2E', ember: '#914027', jungle: '#145348', cobalt: '#1647A5', plum: '#4B2857', sage: '#849379' },
 };
-const defaults = { palette: 'muted', headings: 'ornate', frame: 'tactile', compact: false };
+const defaults = { palette: 'muted', headings: 'ornate', frame: 'tactile', lighting: 'top-right', compact: false };
 const settings = { ...defaults };
 const params = new URLSearchParams(location.search);
-for (const key of ['palette', 'headings', 'frame']) {
-  const allowed = { palette: ['muted', 'saturated'], headings: ['ornate', 'plain'], frame: ['tactile', 'quiet'] }[key];
+for (const key of ['palette', 'headings', 'frame', 'lighting']) {
+  const allowed = { palette: ['muted', 'saturated'], headings: ['ornate', 'plain'], frame: ['tactile', 'quiet'], lighting: ['ambient', 'top-right'] }[key];
   if (allowed.includes(params.get(key))) settings[key] = params.get(key);
 }
 settings.compact = params.get('compact') === '1';
@@ -30,7 +30,7 @@ const collection = cards.map((card) => {
 });
 const selected = new Set();
 const state = { view: params.get('view') === 'deck' ? 'deck' : 'collection', display: params.get('display') === 'gallery' ? 'gallery' : 'table', search: '', location: '', sort: null, ascending: true };
-const deck = { name: 'Breya', description: 'An artifact toolbox, assembled one curious piece at a time.', format: 'Commander' };
+const deck = { name: 'Breya', description: 'Artifact Commander deck.', format: 'Commander' };
 const table = $('#collection-table');
 const columns = [
   { key: 'name', title: 'Name', label: 'Card name', initial: 'N', width: 238, min: 150 },
@@ -57,7 +57,7 @@ function toast(message) {
 function updateUrl() {
   const next = new URL(location.href);
   next.search = '';
-  for (const key of ['palette', 'headings', 'frame']) next.searchParams.set(key, settings[key]);
+  for (const key of ['palette', 'headings', 'frame', 'lighting']) next.searchParams.set(key, settings[key]);
   if (settings.compact) next.searchParams.set('compact', '1');
   if (state.view !== 'collection') next.searchParams.set('view', state.view);
   if (state.display !== 'table') next.searchParams.set('display', state.display);
@@ -70,9 +70,10 @@ function applySettings() {
   for (const element of [document.body, $('#specimen')]) {
     element.dataset.headings = settings.headings;
     element.dataset.frame = settings.frame;
+    element.dataset.lighting = settings.lighting;
   }
   const controls = $('#design-controls');
-  for (const key of ['palette', 'headings', 'frame']) controls.elements[key].value = settings[key];
+  for (const key of ['palette', 'headings', 'frame', 'lighting']) controls.elements[key].value = settings[key];
   controls.elements.compact.checked = settings.compact;
   const swatches = $('#palette-swatches');
   swatches.replaceChildren();
