@@ -99,7 +99,7 @@ html[data-component-theme="study"] :is(.grid-list-table, #listView > table) th[d
    the permanent separator as the visible column rule. */
 html[data-component-theme="study"] .collection-column-resize-handle::after { display: none; }
 html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table, #listView > table) th[data-study-label] {
-  height: 82px; padding: 15px 8px; font-size: 0; text-align: center;
+  height: 60px; padding: 8px; font-size: 0; text-align: center;
   color: var(--study-jungle); vertical-align: middle;
 }
 html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table, #listView > table) th[data-study-label] > .col-label-full,

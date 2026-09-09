@@ -15,6 +15,7 @@ import { filterAndSortCollection, initSearch, moreFiltersSnapshot, applyUrlState
 import { getMultiselectValue, populateMultiselect } from '@app/multiselect.js';
 import { connectCollectionSettings } from './collection-settings.js';
 import { connectSimpleSidebar } from './simple-sidebar.js';
+import { state } from '@app/state.js';
 
 const form = document.querySelector('#component-controls');
 const stage = document.querySelector('#component-stage');
@@ -106,6 +107,11 @@ async function renderScene() {
         colorIdentities: getMultiselectValue(document.getElementById('filterColorIdentity')),
       }).list,
       onFixtureReady: ({ render, cards, root }) => {
+        // The app's compact numeric default is too narrow for the ornamental Q
+        // and its sort marker. Give this fixture room through the real width
+        // model, so the header, cells, and resize handle continue to agree.
+        state.collectionTableColumnWidths = { ...state.collectionTableColumnWidths, qty: 96 };
+        render();
         if (form.elements.sidebar.value !== 'original') connectSimpleSidebar(root, { appHeader: form.elements.sidebar.value === 'header' });
         initSearch({ renderImpl: render });
         for (const [id, values] of [

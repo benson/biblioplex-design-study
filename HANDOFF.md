@@ -2,6 +2,11 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Header height reduced from 82px to 60px with 8px padding. Quantity fixture
+column defaults to 96px through the real column-width state, so the ornamental
+Q's swash and sort marker fit at the right edge. Rendered shorter header and
+quantity sorting checked at the rightmost scroll position.
+
 Ornamental header lettering now uses equal horizontal padding and centers the
 label itself. Sort indicators occupy no inline width and sit 6px to its right,
 so their presence no longer pulls the text left. Visually checked initials and
