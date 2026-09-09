@@ -2,6 +2,12 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Width-responsive optical centering: ResizeObserver computes a shared label/icon
+offset from -7px at <=80px to 0px at >=180px, interpolating between. Narrow
+columns balance lettering plus sort marker; wide columns center the word.
+Unsortable headings get no offset. Sorting doesn't affect it. Verified real
+drag-resize of Set from initial to full word in CUA.
+
 Sidebar hover/focus in Study explicitly pairs the lighter sage/paper background
 with dark ink for text, icons, counts, and group controls. Avoid inheriting
 white sidebar text over the light hover surface. Rendered group hover checked.

@@ -116,9 +116,11 @@ html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table,
 html[data-component-theme="study"][data-headings="ornate"] :is(.grid-list-table, #listView > table) th[data-study-label]::before {
   content: attr(data-study-label); display: inline-block; vertical-align: middle; font: 700 30px/1 'UnifrakturCook',Georgia,serif;
   letter-spacing: 0; text-transform: none; text-shadow: 0 1px var(--study-paper-light);
+  position: relative; left: var(--study-label-offset, 0px);
 }
 html[data-component-theme="study"][data-headings="ornate"] .collection-sort-icon {
   position: relative; display: inline-grid; place-items: center; top: auto; right: auto;
+  left: var(--study-label-offset, 0px);
   width: 0; height: 8px; margin-left: 0; padding-top: 6px; vertical-align: middle;
   transform: none; visibility: visible;
 }

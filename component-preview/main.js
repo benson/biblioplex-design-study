@@ -69,7 +69,13 @@ const headerObserver = new ResizeObserver((entries) => {
   for (const { target } of entries) {
     const label = columnLabels[target.dataset.columnId] || target.getAttribute('title') || target.dataset.columnId;
     const word = label.charAt(0).toUpperCase() + label.slice(1);
-    target.dataset.studyLabel = target.getBoundingClientRect().width < 115 ? word.charAt(0) : word;
+    const width = target.getBoundingClientRect().width;
+    target.dataset.studyLabel = width < 115 ? word.charAt(0) : word;
+    // Balance the 8px marker + 6px gap in tight columns, easing toward
+    // text-only centering as space grows. Sorting never changes this offset.
+    const balance = target.querySelector('.collection-sort-icon')
+      ? Math.max(0, Math.min(1, (180 - width) / 100)) : 0;
+    target.style.setProperty('--study-label-offset', `${-7 * balance}px`);
   }
 });
 function observeHeaders() {
