@@ -2,6 +2,11 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Sidebar reopen fix: offset the production fixed reopen button and peeking
+sidebar by the measured playground toolbar height, in both themes. Previously
+the toolbar covered the reopen button. Real mouse collapse, hover peek, and
+click-to-reopen passed in Study and Current app modes.
+
 Latest refinement: removed the ornamental arches above column headings and
 replaced them with quiet vertical separators confined to the header. Recentered
 the lettering, retaining the 6px sort-icon padding. Removed outer stage margins,

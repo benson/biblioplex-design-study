@@ -19,6 +19,12 @@ html body.biblioplex-storybook { height: 100dvh; overflow: hidden; }
 #component-stage .app-shell { height: 100%; min-height: 0; }
 #component-stage > .bpx-app-view-stage { min-height: 100%; }
 #component-stage .bpx-story-status { display: none; }
+/* Production's fixed sidebar controls assume the app starts at viewport top.
+   The playground adds its own toolbar above the app in both theme modes. */
+@media (min-width: 901px) {
+  #component-stage .sidebar-collapsed-trigger { top: calc(var(--study-controls-height) + 11px); }
+  body.left-sidebar-collapsed #component-stage .app-left { top: calc(var(--study-controls-height) + 52px); }
+}
 
 html[data-component-theme="study"] {
   --study-paper: #eee2c7;
