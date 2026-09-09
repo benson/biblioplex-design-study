@@ -2,6 +2,10 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Sidebar hover/focus in Study explicitly pairs the lighter sage/paper background
+with dark ink for text, icons, counts, and group controls. Avoid inheriting
+white sidebar text over the light hover surface. Rendered group hover checked.
+
 Header height reduced from 82px to 60px with 8px padding. Quantity fixture
 column defaults to 96px through the real column-width state, so the ornamental
 Q's swash and sort marker fit at the right edge. Rendered shorter header and

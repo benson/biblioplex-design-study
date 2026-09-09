@@ -86,6 +86,15 @@ html[data-component-theme="study"] .app-left :is(.scope-option.is-selected, .sco
   --color-text: var(--study-ink); --color-text-strong: var(--study-ink); --color-accent: var(--study-ink); color: var(--study-ink);
 }
 html[data-component-theme="study"] .app-left :is(.scope-option.is-selected, .scope-option-group-destination.is-selected) * { color: var(--study-ink); }
+html[data-component-theme="study"] .app-left :is(.scope-option:hover, .scope-option:focus-visible, .scope-option-group-heading:hover, .scope-option-group-heading:focus-within) {
+  --color-text: var(--study-ink);
+  --color-text-strong: var(--study-ink);
+  --color-text-muted: var(--study-ink);
+  --color-accent: var(--study-ink);
+  background: color-mix(in srgb,var(--study-sage) 45%,var(--study-paper));
+  color: var(--study-ink);
+}
+html[data-component-theme="study"] .app-left :is(.scope-option:hover, .scope-option:focus-visible, .scope-option-group-heading:hover, .scope-option-group-heading:focus-within) * { color: var(--study-ink); }
 html[data-component-theme="study"] .app-left [data-mobile-sidebar-tab] { color: var(--study-paper-light); }
 html[data-component-theme="study"] .app-left input[type="search"] { background: var(--study-paper-light); color: var(--study-ink); }
 html[data-component-theme="study"] .card-name,
