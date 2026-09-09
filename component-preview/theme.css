@@ -145,9 +145,14 @@ html[data-component-theme="study"] #detailDrawer.detail-drawer:not(.visible) { b
 }
 
 /* Alternate navigation, selected by URL; original workbench stays intact. */
-.simple-sidebar-workbench { display: flex; flex-direction: column; }
+.simple-sidebar-workbench { display: flex; flex-direction: column; position: relative; }
 #component-stage .simple-sidebar-workbench .app-shell { flex: 1; height: 0; min-height: 0; transition: none; }
-.simple-app-header { flex: 0 0 52px; display: flex; align-items: center; gap: 12px; padding: 0 14px; background: var(--color-surface); color: var(--color-text); border-bottom: 1px solid var(--color-line); z-index: 26; }
+.simple-app-header { position: absolute; top: 0; left: 0; width: var(--sidebar-width); height: 52px; display: flex; align-items: center; gap: 12px; padding: 0 14px; color: var(--color-text); z-index: 26; }
+.simple-app-header > span { order: -1; }
+.simple-app-header .simple-sidebar-toggle { margin-left: auto; }
+html[data-component-theme="study"] .simple-app-header { color: var(--study-paper-light); }
+body.left-sidebar-collapsed .simple-app-header { width: 48px; padding: 0 8px; color: var(--color-text); }
+body.left-sidebar-collapsed .simple-app-header > span { display: none; }
 .simple-app-header > span { font: 22px 'IM Fell English', Georgia, serif; }
 .simple-sidebar-toggle { display: grid; place-items: center; width: 32px; height: 32px; padding: 6px; border: 0; border-radius: 5px; color: inherit; background: transparent; cursor: pointer; }
 .simple-sidebar-toggle:hover { background: color-mix(in srgb,currentColor 9%,transparent); }
@@ -156,18 +161,22 @@ html[data-component-theme="study"] #detailDrawer.detail-drawer:not(.visible) { b
 .simple-sidebar-workbench :is(.sidebar-collapsed-trigger, .sidebar-toggle) { display: none !important; }
 .simple-sidebar-backdrop { display: none; }
 @media (min-width: 901px) {
-  #component-stage .simple-sidebar-workbench .app-left { display: flex; flex-direction: column; }
+  #component-stage .simple-sidebar-workbench .app-left { display: flex; flex-direction: column; padding-top: 52px; }
   .simple-sidebar-workbench #sidebarBrandSlot { margin-top: auto; padding-top: 16px; border-top: 1px solid #ffffff20; }
   .simple-sidebar-workbench .scope-option-group + .scope-option-group { border-top: 0; margin-top: 20px; padding-top: 0; }
   .simple-sidebar-workbench .scope-option-group-heading { font-size: 12px; }
   .simple-sidebar-workbench .scope-option-group-chevron { display: block; }
   .simple-sidebar-workbench .scope-option-group-toggle .scope-option-group-icon { display: none; }
   body.left-sidebar-collapsed #component-stage .simple-sidebar-workbench .app-left { display: none; }
-  body.left-sidebar-collapsed #component-stage .simple-sidebar-workbench .collection-scope-header:not(.hidden) { padding-left: 16px; }
+  body.left-sidebar-collapsed #component-stage .simple-sidebar-workbench .collection-scope-header:not(.hidden) { padding-left: 56px; }
   .simple-sidebar-resize { position: absolute; top: 0; bottom: 0; right: 0; width: 6px; z-index: 5; cursor: col-resize; touch-action: none; }
   .simple-sidebar-resize:hover, .simple-sidebar-resize:focus-visible { background: var(--study-sage, #949B8B); outline: none; }
 }
 @media (max-width: 900px) {
+  .simple-sidebar-workbench .simple-app-header { width: 48px; padding: 0 8px; }
+  .simple-sidebar-workbench .simple-app-header > span { display: none; }
+  html[data-component-theme="study"] .simple-sidebar-workbench .simple-app-header { color: var(--color-text); }
+  #component-stage .simple-sidebar-workbench .collection-scope-header:not(.hidden) { padding-left: 56px; }
   #component-stage .simple-sidebar-workbench .app-header { display: none; }
   body:not(.left-drawer-open) #component-stage .simple-sidebar-workbench .app-left { position: fixed; top: calc(var(--study-controls-height) + 52px); bottom: 0; left: 0; width: min(280px,85vw); height: auto; max-height: none; z-index: 80; transform: translateX(-100%); visibility: hidden; display: flex; flex-direction: column; padding: 16px; transition: none; }
   body:not(.left-drawer-open) #component-stage .simple-sidebar-mobile-open .app-left { transform: none; visibility: visible; opacity: 1; pointer-events: auto; }

@@ -2,6 +2,14 @@
 
 ## Current direction: actual components — September 9, 2026
 
+Correction after inspecting Benson's signed-in Linear in Chrome: no extra
+full-width header is needed. Simple variant now places brand/toggle within the
+sidebar's top row when open and the toggle beside the existing Collection title
+when closed. Reuses vertical space; click-only behavior remains the experiment.
+Original layout was already structurally close to Linear. Avoid presenting any
+one sidebar interaction pattern as universally normal. Both states visually
+checked and real clicks verified after this correction.
+
 Navigation A/B: `?sidebar=original` preserves the existing pattern;
 `?sidebar=simple` enables the opt-in collection-shell variant. The Navigation
 selector reloads between them. Simple uses a stable header toggle, explicit
